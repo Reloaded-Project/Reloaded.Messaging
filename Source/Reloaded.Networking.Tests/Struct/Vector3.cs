@@ -1,20 +1,18 @@
-﻿using MessagePack;
+﻿using Reloaded.Messaging.Compression;
 using Reloaded.Messaging.Messages;
+using Reloaded.Messaging.Serialization;
+using Reloaded.Messaging.Serializer.MessagePack;
 
-namespace Reloaded.Messaging.Tests.Struct
+namespace Reloaded.Messaging.Tests.Struct.MessagePack
 {
-    [MessagePackObject]
-    public class Vector3 : IMessage<MessageType>
+    public struct Vector3 : IMessage<MessageType>
     {
         public MessageType GetMessageType() => MessageType.Vector3;
+        public ISerializer GetSerializer() => new MsgPackSerializer(true);
+        public ICompressor GetCompressor() => null;
 
-        [Key(0)]
         public float X { get; set; }
-
-        [Key(1)]
         public float Y { get; set; }
-
-        [Key(2)]
         public float Z { get; set; }
 
         public Vector3(float x, float y, float z)
@@ -25,16 +23,22 @@ namespace Reloaded.Messaging.Tests.Struct
         }
 
         /* Auto-implemented by R# */
-        protected bool Equals(Vector3 other)
+        private bool Equals(Vector3 other)
         {
             return X.Equals(other.X) && Y.Equals(other.Y) && Z.Equals(other.Z);
         }
 
         public override bool Equals(object obj)
         {
-            if (ReferenceEquals(null, obj)) return false;
-            if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != this.GetType()) return false;
+            if (ReferenceEquals(null, obj))
+                return false;
+
+            if (ReferenceEquals(this, obj))
+                return true;
+
+            if (obj.GetType() != this.GetType())
+                return false;
+
             return Equals((Vector3)obj);
         }
 

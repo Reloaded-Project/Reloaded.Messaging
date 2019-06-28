@@ -7,6 +7,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reloaded.Messaging", "Reloa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reloaded.Messaging.Tests", "Reloaded.Networking.Tests\Reloaded.Messaging.Tests.csproj", "{31CD0E4F-2A45-4D26-8C5A-948B3E0904CA}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reloaded.Messaging.Serializer.MessagePack", "Reloaded.Messaging.Serializer.MessagePack\Reloaded.Messaging.Serializer.MessagePack.csproj", "{7CC4416E-1E2C-4EF3-AB0F-8B801F6D239C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reloaded.Messaging.Serializer.ReloadedMemory", "Reloaded.Messaging.Serializer.ReloadedMemory\Reloaded.Messaging.Serializer.ReloadedMemory.csproj", "{BB5C861C-8795-49A8-B522-4CBD4EC4C99D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reloaded.Messaging.Compressor.ZStandard", "Reloaded.Messaging.Compressor.ZStandard\Reloaded.Messaging.Compressor.ZStandard.csproj", "{213B7088-C3D6-4180-B8A1-69D7D989A53C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +27,18 @@ Global
 		{31CD0E4F-2A45-4D26-8C5A-948B3E0904CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31CD0E4F-2A45-4D26-8C5A-948B3E0904CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31CD0E4F-2A45-4D26-8C5A-948B3E0904CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CC4416E-1E2C-4EF3-AB0F-8B801F6D239C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CC4416E-1E2C-4EF3-AB0F-8B801F6D239C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CC4416E-1E2C-4EF3-AB0F-8B801F6D239C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CC4416E-1E2C-4EF3-AB0F-8B801F6D239C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB5C861C-8795-49A8-B522-4CBD4EC4C99D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB5C861C-8795-49A8-B522-4CBD4EC4C99D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB5C861C-8795-49A8-B522-4CBD4EC4C99D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB5C861C-8795-49A8-B522-4CBD4EC4C99D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{213B7088-C3D6-4180-B8A1-69D7D989A53C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{213B7088-C3D6-4180-B8A1-69D7D989A53C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{213B7088-C3D6-4180-B8A1-69D7D989A53C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{213B7088-C3D6-4180-B8A1-69D7D989A53C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

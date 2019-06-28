@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Reloaded.Messaging.Messages;
 using Reloaded.Messaging.Structs;
 
@@ -34,12 +33,21 @@ namespace Reloaded.Messaging
         /// <summary>
         /// Sets a method to execute handling a specific <see cref="TMessageType"/>
         /// </summary>
-        public void AddOrOverrideHandler<TStruct>(TMessageType messageType, Handler<TStruct> handler) where TStruct : IMessage<TMessageType>
+        public void AddOrOverrideHandler<TStruct>(Handler<TStruct> handler) where TStruct : IMessage<TMessageType>, new()
         {
-            RawNetMessageHandler parameters = delegate(ref RawNetMessage rawMessage)
+            var messageType = MessageExtensions.GetMessageType(new TStruct());
+            AddOrOverrideHandler(messageType, handler);
+        }
+
+        /// <summary>
+        /// Sets a method to execute handling a specific <see cref="TMessageType"/>
+        /// </summary>
+        public void AddOrOverrideHandler<TStruct>(TMessageType messageType, Handler<TStruct> handler) where TStruct : IMessage<TMessageType>, new()
+        {
+            RawNetMessageHandler parameters = delegate (ref RawNetMessage rawMessage)
             {
                 var message = Message<TMessageType, TStruct>.Deserialize(rawMessage.Message);
-                var netMessage = new NetMessage<TStruct>(message, rawMessage);
+                var netMessage = new NetMessage<TStruct>(ref message, ref rawMessage);
                 handler(ref netMessage);
             };
 

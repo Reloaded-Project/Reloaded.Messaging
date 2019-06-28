@@ -9,7 +9,7 @@ namespace Reloaded.Messaging.Structs
         public NetPacketReader PacketReader { get; private set; }
         public DeliveryMethod DeliveryMethod { get; private set; }
 
-        public NetMessage(TStruct message, RawNetMessage rawMessage)
+        public NetMessage(ref TStruct message, ref RawNetMessage rawMessage)
         {
             Message = message;
             Peer = rawMessage.Peer;
