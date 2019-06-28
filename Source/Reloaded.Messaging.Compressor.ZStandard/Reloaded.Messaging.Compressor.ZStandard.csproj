@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Reloaded.Networking\Reloaded.Messaging.csproj" />
+    <ProjectReference Include="..\Reloaded.Messaging\Reloaded.Messaging.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29006.145
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reloaded.Messaging", "Reloaded.Networking\Reloaded.Messaging.csproj", "{0F5EE206-32FC-404F-80FB-E02B37AE2855}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reloaded.Messaging", "Reloaded.Messaging\Reloaded.Messaging.csproj", "{0F5EE206-32FC-404F-80FB-E02B37AE2855}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reloaded.Messaging.Tests", "Reloaded.Networking.Tests\Reloaded.Messaging.Tests.csproj", "{31CD0E4F-2A45-4D26-8C5A-948B3E0904CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reloaded.Messaging.Tests", "Reloaded.Messaging.Tests\Reloaded.Messaging.Tests.csproj", "{31CD0E4F-2A45-4D26-8C5A-948B3E0904CA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reloaded.Messaging.Serializer.MessagePack", "Reloaded.Messaging.Serializer.MessagePack\Reloaded.Messaging.Serializer.MessagePack.csproj", "{7CC4416E-1E2C-4EF3-AB0F-8B801F6D239C}"
 EndProject
