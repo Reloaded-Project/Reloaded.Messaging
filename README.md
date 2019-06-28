@@ -7,7 +7,7 @@
 </div>
 
 # Packages
-**Reloaded.Messaging:** <a href="https://www.nuget.org/packages/Reloaded.Messaging"><img src="https://img.shields.io/nuget/v/Reloaded.Messaging.svg" alt="NuGet" /></a>  <a href="https://ci.appveyor.com/project/sewer56lol/reloaded-messaging"><img src="https://ci.appveyor.com/api/projects/status/u5f1ucq7d76m376g?svg=true" alt="Build Status" /></a>
+**Reloaded.Messaging:** <a href="https://www.nuget.org/packages/Reloaded.Messaging"><img src="https://img.shields.io/nuget/v/Reloaded.Messaging.svg" alt="NuGet" /></a>
 
 **Reloaded.Messaging.Serializer.MessagePack**:  <a href="https://www.nuget.org/packages/Reloaded.Messaging.Serializer.MessagePack"><img src="https://img.shields.io/nuget/v/Reloaded.Messaging.Serializer.MessagePack.svg" alt="NuGet" /></a>
 
