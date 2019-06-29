@@ -25,7 +25,7 @@ namespace Reloaded.Messaging.Serializer.ReloadedMemory
 
         public TStruct Deserialize<TStruct>(byte[] serialized)
         {
-            Struct.FromArray(serialized, out TStruct value, 0, MarshalValues);
+            Struct.FromArray(serialized, out TStruct value, MarshalValues, 0);
             return value;
         }
 
