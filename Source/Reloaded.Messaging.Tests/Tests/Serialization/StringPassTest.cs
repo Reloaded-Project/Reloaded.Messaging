@@ -25,6 +25,7 @@ namespace Reloaded.Messaging.Tests.Tests.Serialization
         {
             Overrides.SerializerOverride.Remove(typeof(StringMessage));
             Overrides.CompressorOverride.Remove(typeof(StringMessage));
+            _hosts.Dispose();
         }
 
         [Fact(Timeout = 1000)]

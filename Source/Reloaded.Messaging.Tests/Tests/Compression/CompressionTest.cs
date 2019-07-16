@@ -24,6 +24,7 @@ namespace Reloaded.Messaging.Tests.Tests.Compression
 
             // Set serialization: Reloaded.
             // Set compression: None
+            GC.Collect();
             Overrides.SerializerOverride[typeof(Vector3)] = new ReloadedMemorySerializer(false);
             Overrides.CompressorOverride.Remove(typeof(Vector3));
 

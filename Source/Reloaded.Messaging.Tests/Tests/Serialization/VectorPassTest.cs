@@ -24,13 +24,14 @@ namespace Reloaded.Messaging.Tests.Tests.Serialization
         {
             Overrides.SerializerOverride.Remove(typeof(Vector3));
             Overrides.CompressorOverride.Remove(typeof(Vector3));
+            _hosts.Dispose();
         }
 
         [Fact(Timeout = 1000)]
         public void MsgPackPassVector3()
         {
             Overrides.SerializerOverride[typeof(Vector3)] = new MsgPackSerializer(false);
-            Overrides.CompressorOverride[typeof(Vector3)] = null;
+            Overrides.CompressorOverride.Remove(typeof(Vector3));
             PassVector3();
         }
 
@@ -38,7 +39,7 @@ namespace Reloaded.Messaging.Tests.Tests.Serialization
         public void ReloadedPassVector3()
         {
             Overrides.SerializerOverride[typeof(Vector3)] = new ReloadedMemorySerializer(false);
-            Overrides.CompressorOverride[typeof(Vector3)] = null;
+            Overrides.CompressorOverride.Remove(typeof(Vector3));
             PassVector3();
         }
 

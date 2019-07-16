@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFrameworks>netstandard2.1;netstandard2.0</TargetFrameworks>
     <Authors>Sewer56</Authors>
     <Product>Reloaded.Messaging.Serializer.ReloadedMemory</Product>
     <Description>Basic Reloaded.Memory based serialization implementation for Reloaded.Messaging that converts structs to their raw byte representation and back.</Description>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using Reloaded.Messaging.Compression;
 using Reloaded.Messaging.Serialization;
@@ -36,9 +37,16 @@ namespace Reloaded.Messaging.Messages
             var resultSpan = result.AsSpan();
 
             var messageType = MessageType;
+
+#if (USE_NATIVE_SPAN_API)
             var readOnlyMessageType = MemoryMarshal.CreateReadOnlySpan(ref messageType, sizeof(TMessageType));
             var readOnlyMessageTypeBytes = MemoryMarshal.AsBytes(readOnlyMessageType);
             readOnlyMessageTypeBytes.CopyTo(resultSpan);
+#else
+            byte* bytes = (byte*)Unsafe.AsPointer(ref messageType);
+            var readOnlyMessageTypeBytes = new Span<byte>(bytes, sizeof(TMessageType)); 
+            readOnlyMessageTypeBytes.CopyTo(resultSpan);
+#endif
 
             // Append serialized data.
             resultSpan = resultSpan.Slice(sizeof(TMessageType));

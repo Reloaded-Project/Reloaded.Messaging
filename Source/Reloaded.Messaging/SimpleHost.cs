@@ -1,4 +1,5 @@
-﻿using LiteNetLib;
+﻿using System;
+using LiteNetLib;
 using Reloaded.Messaging.Structs;
 
 namespace Reloaded.Messaging
@@ -6,7 +7,7 @@ namespace Reloaded.Messaging
     /// <summary>
     /// Provides a simple client or host based off of LiteNetLib
     /// </summary>
-    public class SimpleHost<TMessageType> where TMessageType : unmanaged
+    public class SimpleHost<TMessageType> : IDisposable where TMessageType : unmanaged
     {
         public string Password { get; set; }
         public bool AcceptClients { get; set; }
@@ -27,6 +28,11 @@ namespace Reloaded.Messaging
             NetManager = new NetManager(Listener);
             NetManager.UnsyncedEvents = true;
             NetManager.AutoRecycle = true;
+        }
+
+        public void Dispose()
+        {
+            NetManager.Stop();
         }
 
         private void ListenerOnConnectionRequestEvent(ConnectionRequest request)

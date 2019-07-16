@@ -1,8 +1,9 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 
 namespace Reloaded.Messaging.Tests.Init
 {
-    public class TestingHosts
+    public class TestingHosts : IDisposable
     {
         private const string DefaultPassword = "CutenessIsJustice";
         public SimpleHost<MessageType> SimpleServer;
@@ -21,6 +22,12 @@ namespace Reloaded.Messaging.Tests.Init
             SimpleServer.NetManager.DisconnectTimeout = int.MaxValue;
             SimpleClient.NetManager.DisconnectTimeout = int.MaxValue;
 #endif
+        }
+
+        public void Dispose()
+        {
+            SimpleServer?.Dispose();
+            SimpleClient?.Dispose();
         }
     }
 }
