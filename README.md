@@ -36,8 +36,11 @@ It has been slightly extended in the hope of becoming more general purpose, perh
 
 ### How It Works (Summary)
 A. User specifies or chooses an individual unmanaged type `TMessageType` (recommend enum), where each unique value corresponds to different message structure.
+
 B. User implements interface `IMessage<TMessageType>` in types they want to send over the network.
+
 C. User creates `SimpleHost` instance(s) for Server/Client with type from `A` as generic type.
+
 D. User registers methods to handle different values for `TMessageType`.
 
 And then message sending/receiving can proceed.
