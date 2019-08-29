@@ -10,7 +10,9 @@
     <PackageIconUrl>https://avatars1.githubusercontent.com/u/45473408</PackageIconUrl>
     <RepositoryUrl>https://github.com/Reloaded-Project/Reloaded.Messaging</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.3</Version>
+    <Version>1.0.4</Version>
+
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
