@@ -1,12 +1,17 @@
 using System;
+using System.Text.Json;
 using System.Threading;
 using LiteNetLib;
+using Newtonsoft.Json;
+using Reloaded.Messaging.Interfaces;
 using Reloaded.Messaging.Messages;
 using Reloaded.Messaging.Serializer.MessagePack;
+using Reloaded.Messaging.Serializer.NewtonsoftJson;
 using Reloaded.Messaging.Serializer.ReloadedMemory;
+using Reloaded.Messaging.Serializer.SystemTextJson;
 using Reloaded.Messaging.Structs;
 using Reloaded.Messaging.Tests.Init;
-using Reloaded.Messaging.Tests.Struct.MessagePack;
+using Reloaded.Messaging.Tests.Struct;
 using Xunit;
 
 namespace Reloaded.Messaging.Tests.Tests.Serialization
@@ -40,6 +45,22 @@ namespace Reloaded.Messaging.Tests.Tests.Serialization
         public void ReloadedPassString()
         {
             Overrides.SerializerOverride[typeof(StringMessage)] = new ReloadedMemorySerializer(true);
+            Overrides.CompressorOverride[typeof(StringMessage)] = null;
+            PassString();
+        }
+
+        [Fact(Timeout = 1000)]
+        public void SystemTextJsonPassString()
+        {
+            Overrides.SerializerOverride[typeof(StringMessage)] = new SystemTextJsonSerializer(new JsonSerializerOptions());
+            Overrides.CompressorOverride[typeof(StringMessage)] = null;
+            PassString();
+        }
+
+        [Fact(Timeout = 1000)]
+        public void NewtonsoftPassString()
+        {
+            Overrides.SerializerOverride[typeof(StringMessage)] = new NewtonsoftJsonSerializer(new JsonSerializerSettings());
             Overrides.CompressorOverride[typeof(StringMessage)] = null;
             PassString();
         }

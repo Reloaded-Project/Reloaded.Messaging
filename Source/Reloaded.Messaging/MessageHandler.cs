@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Reloaded.Messaging.Interfaces;
 using Reloaded.Messaging.Messages;
 using Reloaded.Messaging.Structs;
 

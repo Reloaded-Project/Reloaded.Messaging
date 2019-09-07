@@ -2,7 +2,7 @@
 using Reloaded.Messaging.Compressor.ZStandard;
 using Reloaded.Messaging.Messages;
 using Reloaded.Messaging.Serializer.ReloadedMemory;
-using Reloaded.Messaging.Tests.Struct.MessagePack;
+using Reloaded.Messaging.Tests.Struct;
 using Xunit;
 using ZstdNet;
 

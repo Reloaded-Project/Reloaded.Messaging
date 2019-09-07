@@ -11,7 +11,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reloaded.Messaging.Serializ
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reloaded.Messaging.Serializer.ReloadedMemory", "Reloaded.Messaging.Serializer.ReloadedMemory\Reloaded.Messaging.Serializer.ReloadedMemory.csproj", "{BB5C861C-8795-49A8-B522-4CBD4EC4C99D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reloaded.Messaging.Compressor.ZStandard", "Reloaded.Messaging.Compressor.ZStandard\Reloaded.Messaging.Compressor.ZStandard.csproj", "{213B7088-C3D6-4180-B8A1-69D7D989A53C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reloaded.Messaging.Compressor.ZStandard", "Reloaded.Messaging.Compressor.ZStandard\Reloaded.Messaging.Compressor.ZStandard.csproj", "{213B7088-C3D6-4180-B8A1-69D7D989A53C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reloaded.Messaging.Interfaces", "Reloaded.Messaging.Interfaces\Reloaded.Messaging.Interfaces.csproj", "{90FF55E7-AFAC-4089-BAAD-B9BFF51E2447}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reloaded.Messaging.Serializer.SystemTextJson", "Reloaded.Messaging.Serializer.SystemTextJson\Reloaded.Messaging.Serializer.SystemTextJson.csproj", "{E80F0107-A3A7-4DDF-BA5F-3C771F54062E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reloaded.Messaging.Serializer.NewtonsoftJson", "Reloaded.Messaging.Serializer.NewtonsoftJson\Reloaded.Messaging.Serializer.NewtonsoftJson.csproj", "{62D6AE60-B5CB-4E13-9A98-BD8DCB0CBBE6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +45,18 @@ Global
 		{213B7088-C3D6-4180-B8A1-69D7D989A53C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{213B7088-C3D6-4180-B8A1-69D7D989A53C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{213B7088-C3D6-4180-B8A1-69D7D989A53C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90FF55E7-AFAC-4089-BAAD-B9BFF51E2447}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90FF55E7-AFAC-4089-BAAD-B9BFF51E2447}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90FF55E7-AFAC-4089-BAAD-B9BFF51E2447}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90FF55E7-AFAC-4089-BAAD-B9BFF51E2447}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E80F0107-A3A7-4DDF-BA5F-3C771F54062E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E80F0107-A3A7-4DDF-BA5F-3C771F54062E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E80F0107-A3A7-4DDF-BA5F-3C771F54062E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E80F0107-A3A7-4DDF-BA5F-3C771F54062E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62D6AE60-B5CB-4E13-9A98-BD8DCB0CBBE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62D6AE60-B5CB-4E13-9A98-BD8DCB0CBBE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62D6AE60-B5CB-4E13-9A98-BD8DCB0CBBE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62D6AE60-B5CB-4E13-9A98-BD8DCB0CBBE6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

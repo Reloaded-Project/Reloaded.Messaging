@@ -1,9 +1,8 @@
-﻿using Reloaded.Messaging.Compression;
+﻿using Reloaded.Messaging.Interfaces;
 using Reloaded.Messaging.Messages;
-using Reloaded.Messaging.Serialization;
 using Reloaded.Messaging.Serializer.MessagePack;
 
-namespace Reloaded.Messaging.Tests.Struct.MessagePack
+namespace Reloaded.Messaging.Tests.Struct
 {
     public struct Vector3 : IMessage<MessageType>
     {

@@ -1,19 +1,17 @@
 ﻿using System.Runtime.InteropServices;
-using Reloaded.Messaging.Compression;
+using Reloaded.Messaging.Interfaces;
 using Reloaded.Messaging.Messages;
-using Reloaded.Messaging.Serialization;
 using Reloaded.Messaging.Serializer.MessagePack;
 
-namespace Reloaded.Messaging.Tests.Struct.MessagePack
+namespace Reloaded.Messaging.Tests.Struct
 {
     public struct StringMessage : IMessage<MessageType>
     {
         public MessageType GetMessageType() => MessageType.String;
-        public ISerializer GetSerializer() => new MsgPackSerializer(true);
-        public ICompressor GetCompressor() => null;
+        public ISerializer GetSerializer()  => new MsgPackSerializer(true);
+        public ICompressor GetCompressor()  => null;
 
-        [MarshalAs(UnmanagedType.BStr)]
-        public string Text;
+        public string Text { get; set; }
 
         public StringMessage(string text)
         {

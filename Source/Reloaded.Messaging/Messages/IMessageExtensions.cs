@@ -1,4 +1,6 @@
-﻿namespace Reloaded.Messaging.Messages
+﻿using Reloaded.Messaging.Interfaces;
+
+namespace Reloaded.Messaging.Messages
 {
     public static class MessageExtensions
     {

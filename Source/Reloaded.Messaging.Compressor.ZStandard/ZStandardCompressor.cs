@@ -1,5 +1,5 @@
 ﻿using System;
-using Reloaded.Messaging.Compression;
+using Reloaded.Messaging.Interfaces;
 using ZstdNet;
 
 namespace Reloaded.Messaging.Compressor.ZStandard
@@ -30,11 +30,14 @@ namespace Reloaded.Messaging.Compressor.ZStandard
             GC.SuppressFinalize(this);
         }
 
+
+        /// <inheritdoc />
         public byte[] Compress(byte[] data)
         {
             return Compressor.Wrap(data);
         }
 
+        /// <inheritdoc />
         public byte[] Decompress(byte[] data)
         {
             return Decompressor.Unwrap(data);

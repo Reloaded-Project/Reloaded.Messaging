@@ -1,5 +1,5 @@
 ﻿using MessagePack;
-using Reloaded.Messaging.Serialization;
+using Reloaded.Messaging.Interfaces;
 
 namespace Reloaded.Messaging.Serializer.MessagePack
 {
@@ -8,13 +8,13 @@ namespace Reloaded.Messaging.Serializer.MessagePack
         /// <summary>
         /// Uses LZ4 compression for serialization.
         /// </summary>
-        public bool UseLZ4 { get; set; }
+        public bool UseLZ4 { get; private set; }
 
         /// <summary>
         /// Any custom resolver to pass to MessagePack.
         /// Default is <see cref="MessagePack.Resolvers.ContractlessStandardResolver.Instance"/>
         /// </summary>
-        public IFormatterResolver Resolver { get; set; } = global::MessagePack.Resolvers.ContractlessStandardResolver.Instance;
+        public IFormatterResolver Resolver { get; private set; } = global::MessagePack.Resolvers.ContractlessStandardResolver.Instance;
 
         /// <summary>
         /// Creates a new instance of the MessagePack serializer.
@@ -31,12 +31,16 @@ namespace Reloaded.Messaging.Serializer.MessagePack
                 Resolver = resolver;
         }
 
+
+        /// <inheritdoc />
         public TStruct Deserialize<TStruct>(byte[] serialized)
         {
             return UseLZ4 ? LZ4MessagePackSerializer.Deserialize<TStruct>(serialized, Resolver) : 
                             MessagePackSerializer.Deserialize<TStruct>(serialized, Resolver);
         }
 
+
+        /// <inheritdoc />
         public byte[] Serialize<TStruct>(ref TStruct item)
         {
             return UseLZ4 ? LZ4MessagePackSerializer.Serialize(item, Resolver) :

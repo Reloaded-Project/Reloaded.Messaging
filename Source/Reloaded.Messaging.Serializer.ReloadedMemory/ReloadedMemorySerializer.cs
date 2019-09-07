@@ -1,5 +1,5 @@
 ﻿using Reloaded.Memory;
-using Reloaded.Messaging.Serialization;
+using Reloaded.Messaging.Interfaces;
 
 namespace Reloaded.Messaging.Serializer.ReloadedMemory
 {
@@ -9,7 +9,7 @@ namespace Reloaded.Messaging.Serializer.ReloadedMemory
         /// Marshals structures if set to true however is significantly slower.
         /// Note: Marshalling also allows you to serialize Classes with [StructLayout] attribute.
         /// </summary>
-        public bool MarshalValues { get; set; }
+        public bool MarshalValues { get; private set; }
 
         /// <summary>
         /// Creates the Reloaded.Memory based serializer.
@@ -23,12 +23,14 @@ namespace Reloaded.Messaging.Serializer.ReloadedMemory
             MarshalValues = marshalValues;
         }
 
+        /// <inheritdoc />
         public TStruct Deserialize<TStruct>(byte[] serialized)
         {
             Struct.FromArray(serialized, out TStruct value, MarshalValues, 0);
             return value;
         }
 
+        /// <inheritdoc />
         public byte[] Serialize<TStruct>(ref TStruct item)
         {
             byte[] bytes = Struct.GetBytes(ref item, MarshalValues);

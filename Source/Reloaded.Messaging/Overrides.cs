@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Reloaded.Messaging.Compression;
-using Reloaded.Messaging.Serialization;
+using Reloaded.Messaging.Interfaces;
 
 namespace Reloaded.Messaging
 {

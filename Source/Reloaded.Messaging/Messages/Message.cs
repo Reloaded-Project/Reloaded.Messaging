@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using Reloaded.Messaging.Compression;
-using Reloaded.Messaging.Serialization;
+using Reloaded.Messaging.Interfaces;
 
 namespace Reloaded.Messaging.Messages
 {
@@ -18,7 +17,6 @@ namespace Reloaded.Messaging.Messages
 
         public Message(TStruct message)
         {
-            MessageType = ((IMessage<TMessageType>) message).GetMessageType();
             ActualMessage = message;
         }
 
@@ -35,8 +33,7 @@ namespace Reloaded.Messaging.Messages
             // Allocate memory for result and write header.
             var result = new byte[encodedMessage.Length + sizeof(TMessageType)];
             var resultSpan = result.AsSpan();
-
-            var messageType = MessageType;
+            var messageType = ActualMessage.GetMessageType();
 
 #if (USE_NATIVE_SPAN_API)
             var readOnlyMessageType = MemoryMarshal.CreateReadOnlySpan(ref messageType, sizeof(TMessageType));

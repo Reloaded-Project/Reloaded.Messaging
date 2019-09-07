@@ -5,15 +5,29 @@ using Reloaded.Messaging.Structs;
 namespace Reloaded.Messaging
 {
     /// <summary>
-    /// Provides a simple client or host based off of LiteNetLib
+    /// Provides a simple client or host based off of LiteNetLib.
     /// </summary>
     public class SimpleHost<TMessageType> : IDisposable where TMessageType : unmanaged
     {
+        /// <summary>
+        /// The password necessary to join this host. If it does not match, incoming clients will be rejected.
+        /// </summary>
         public string Password { get; set; }
+
+        /// <summary>
+        /// Set to true to accept incoming clients, else reject all clients.
+        /// </summary>
         public bool AcceptClients { get; set; }
+
+        /// <summary>
+        /// Dispatcher for individual <see cref="TMessageType"/>(s) to your events.
+        /// </summary>
         public MessageHandler<TMessageType> MessageHandler { get; private set; }
 
+        /// <summary/>
         public EventBasedNetListener Listener { get; private set; }
+
+        /// <summary/>
         public NetManager NetManager { get; private set; }
 
         public SimpleHost(bool acceptClients, string password = "")
@@ -30,6 +44,7 @@ namespace Reloaded.Messaging
             NetManager.AutoRecycle = true;
         }
 
+        /// <inheritdoc />
         public void Dispose()
         {
             NetManager.Stop();

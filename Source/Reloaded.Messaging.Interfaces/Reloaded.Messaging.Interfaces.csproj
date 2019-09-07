@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Description>Contains all of the interfaces (and some extension functionality) used by the base Reloaded.Messaging library.
+This package exists to allow you to use various features of the library, such as serializers without the need to import the dependencies of the base package.</Description>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/Reloaded-Project/Reloaded.Messaging</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Reloaded-Project/Reloaded.Messaging</RepositoryUrl>
+    <PackageIconUrl>https://avatars1.githubusercontent.com/u/45473408</PackageIconUrl>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>

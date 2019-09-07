@@ -1,13 +1,17 @@
 using System;
+using System.Text.Json;
 using System.Threading;
 using LiteNetLib;
+using Newtonsoft.Json;
 using Reloaded.Messaging.Messages;
 using Reloaded.Messaging.Serializer.MessagePack;
+using Reloaded.Messaging.Serializer.NewtonsoftJson;
 using Reloaded.Messaging.Serializer.ReloadedMemory;
+using Reloaded.Messaging.Serializer.SystemTextJson;
 using Reloaded.Messaging.Structs;
 using Reloaded.Messaging.Tests.Init;
 using Xunit;
-using Vector3 = Reloaded.Messaging.Tests.Struct.MessagePack.Vector3;
+using Vector3 = Reloaded.Messaging.Tests.Struct.Vector3;
 
 namespace Reloaded.Messaging.Tests.Tests.Serialization
 {
@@ -39,6 +43,22 @@ namespace Reloaded.Messaging.Tests.Tests.Serialization
         public void ReloadedPassVector3()
         {
             Overrides.SerializerOverride[typeof(Vector3)] = new ReloadedMemorySerializer(false);
+            Overrides.CompressorOverride.Remove(typeof(Vector3));
+            PassVector3();
+        }
+
+        [Fact(Timeout = 1000)]
+        public void SystemTextJsonPassVector3()
+        {
+            Overrides.SerializerOverride[typeof(Vector3)] = new SystemTextJsonSerializer(new JsonSerializerOptions());
+            Overrides.CompressorOverride.Remove(typeof(Vector3));
+            PassVector3();
+        }
+
+        [Fact(Timeout = 1000)]
+        public void NewtonsoftPassVector3()
+        {
+            Overrides.SerializerOverride[typeof(Vector3)] = new NewtonsoftJsonSerializer(new JsonSerializerSettings());
             Overrides.CompressorOverride.Remove(typeof(Vector3));
             PassVector3();
         }
