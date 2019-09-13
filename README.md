@@ -41,5 +41,5 @@ It has been slightly extended in the hope of becoming more general purpose, perh
 ## Usage
 
 [Usage: As Networking Library](./Docs/UseAsNetworkingLibrary.md)
-[Usage: As Serialization Library]((./Docs/UseAsSerializationLibrary.md)
+[Usage: As Serialization Library](./Docs/UseAsSerializationLibrary.md)
 [Adding 3rd Party Compressors & Serializers](./Docs/ImplementingCompressorsSerializers.md)
