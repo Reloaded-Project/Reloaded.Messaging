@@ -20,6 +20,11 @@ namespace Reloaded.Messaging
         public bool AcceptClients { get; set; }
 
         /// <summary>
+        /// Event for handling connection requests.
+        /// </summary>
+        public event EventBasedNetListener.OnConnectionRequest ConnectionRequestEvent;
+
+        /// <summary>
         /// Dispatcher for individual <see cref="TMessageType"/>(s) to your events.
         /// </summary>
         public MessageHandler<TMessageType> MessageHandler { get; private set; }
@@ -29,6 +34,7 @@ namespace Reloaded.Messaging
 
         /// <summary/>
         public NetManager NetManager { get; private set; }
+
 
         public SimpleHost(bool acceptClients, string password = "")
         {
@@ -52,6 +58,12 @@ namespace Reloaded.Messaging
 
         private void ListenerOnConnectionRequestEvent(ConnectionRequest request)
         {
+            if (ConnectionRequestEvent != null)
+            {
+                ConnectionRequestEvent(request);
+                return;
+            }
+
             if (AcceptClients)
                 request.AcceptIfKey(Password);
             else
