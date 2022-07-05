@@ -8,14 +8,18 @@ This package exists to allow you to use various features of the library, such as
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/Reloaded-Project/Reloaded.Messaging</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Reloaded-Project/Reloaded.Messaging</RepositoryUrl>
-    <PackageIconUrl>https://avatars1.githubusercontent.com/u/45473408</PackageIconUrl>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PackageIcon>NuGet-Icon.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <None Include="..\..\LICENSE.md">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
+    </None>
+    <None Include="..\NuGet-Icon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
     </None>
   </ItemGroup>
 

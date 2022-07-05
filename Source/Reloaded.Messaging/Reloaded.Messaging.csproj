@@ -19,11 +19,12 @@
     <DefineConstants Condition="'$(TargetFramework)' == 'netcoreapp3.1'">$(DefineConstants);USE_NATIVE_UNSAFE</DefineConstants>
     <NoWarn>1701;1702;NU5104</NoWarn>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PackageIcon>NuGet-Icon.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="LiteNetLib" Version="1.0.0-rc.3" />
-    <PackageReference Include="System.Memory" Version="4.5.5" Condition="! $(DefineConstants.Contains('USE_NATIVE_SPAN_API'))"  />
+    <PackageReference Include="System.Memory" Version="4.5.5" Condition="! $(DefineConstants.Contains('USE_NATIVE_SPAN_API'))" />
     <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.0.0" Condition="! $(DefineConstants.Contains('USE_NATIVE_UNSAFE'))" />
   </ItemGroup>
 
@@ -31,6 +32,10 @@
     <None Include="..\..\LICENSE.md">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
+    </None>
+    <None Include="..\NuGet-Icon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
     </None>
   </ItemGroup>
 
