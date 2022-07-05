@@ -1,8 +1,7 @@
-﻿namespace Reloaded.Messaging.Tests
+﻿namespace Reloaded.Messaging.Tests;
+
+public enum MessageType : byte
 {
-    public enum MessageType : byte
-    {
-        String,
-        Vector3
-    }
+    String,
+    Vector3
 }

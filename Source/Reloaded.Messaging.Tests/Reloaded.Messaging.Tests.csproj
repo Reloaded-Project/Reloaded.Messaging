@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>netcoreapp3.1;NET472;net5.0</TargetFrameworks>
-
+    <LangVersion>preview</LangVersion>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 

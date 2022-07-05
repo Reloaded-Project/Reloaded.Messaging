@@ -14,79 +14,78 @@ using Reloaded.Messaging.Tests.Init;
 using Reloaded.Messaging.Tests.Struct;
 using Xunit;
 
-namespace Reloaded.Messaging.Tests.Tests.Serialization
+namespace Reloaded.Messaging.Tests.Tests.Serialization;
+
+public class StringPassTest : IDisposable
 {
-    public class StringPassTest : IDisposable
+    private const string Message = "Test Message";
+    private TestingHosts _hosts;
+
+    public StringPassTest()
     {
-        private const string Message = "Test Message";
-        private TestingHosts _hosts;
+        _hosts = new TestingHosts();
+    }
 
-        public StringPassTest()
-        {
-            _hosts = new TestingHosts();
-        }
+    public void Dispose()
+    {
+        Overrides.SerializerOverride.Remove(typeof(StringMessage));
+        Overrides.CompressorOverride.Remove(typeof(StringMessage));
+        _hosts.Dispose();
+    }
 
-        public void Dispose()
-        {
-            Overrides.SerializerOverride.Remove(typeof(StringMessage));
-            Overrides.CompressorOverride.Remove(typeof(StringMessage));
-            _hosts.Dispose();
-        }
+    [Fact(Timeout = 1000)]
+    public void MsgPackPassString()
+    {
+        Overrides.SerializerOverride[typeof(StringMessage)] = new MsgPackSerializer();
+        Overrides.CompressorOverride[typeof(StringMessage)] = null;
+        PassString();
+    }
 
-        [Fact(Timeout = 1000)]
-        public void MsgPackPassString()
-        {
-            Overrides.SerializerOverride[typeof(StringMessage)] = new MsgPackSerializer();
-            Overrides.CompressorOverride[typeof(StringMessage)] = null;
-            PassString();
-        }
+    [Fact(Timeout = 1000)]
+    public void ReloadedPassString()
+    {
+        Overrides.SerializerOverride[typeof(StringMessage)] = new ReloadedMemorySerializer(true);
+        Overrides.CompressorOverride[typeof(StringMessage)] = null;
+        PassString();
+    }
 
-        [Fact(Timeout = 1000)]
-        public void ReloadedPassString()
-        {
-            Overrides.SerializerOverride[typeof(StringMessage)] = new ReloadedMemorySerializer(true);
-            Overrides.CompressorOverride[typeof(StringMessage)] = null;
-            PassString();
-        }
+    [Fact(Timeout = 1000)]
+    public void SystemTextJsonPassString()
+    {
+        Overrides.SerializerOverride[typeof(StringMessage)] = new SystemTextJsonSerializer(new JsonSerializerOptions());
+        Overrides.CompressorOverride[typeof(StringMessage)] = null;
+        PassString();
+    }
 
-        [Fact(Timeout = 1000)]
-        public void SystemTextJsonPassString()
-        {
-            Overrides.SerializerOverride[typeof(StringMessage)] = new SystemTextJsonSerializer(new JsonSerializerOptions());
-            Overrides.CompressorOverride[typeof(StringMessage)] = null;
-            PassString();
-        }
+    [Fact(Timeout = 1000)]
+    public void NewtonsoftPassString()
+    {
+        Overrides.SerializerOverride[typeof(StringMessage)] = new NewtonsoftJsonSerializer(new JsonSerializerSettings());
+        Overrides.CompressorOverride[typeof(StringMessage)] = null;
+        PassString();
+    }
 
-        [Fact(Timeout = 1000)]
-        public void NewtonsoftPassString()
-        {
-            Overrides.SerializerOverride[typeof(StringMessage)] = new NewtonsoftJsonSerializer(new JsonSerializerSettings());
-            Overrides.CompressorOverride[typeof(StringMessage)] = null;
-            PassString();
-        }
-
-        private void PassString()
-        {
-            string delivered = default;
+    private void PassString()
+    {
+        string delivered = default;
             
-            // Message handling method
-            void Handler(ref NetMessage<StringMessage> netMessage)
-            {
-                delivered = netMessage.Message.Text;
-            }
-
-            // Setup client.
-            _hosts.SimpleClient.MessageHandler.AddOrOverrideHandler<StringMessage>(Handler);
-
-            // Send Message.
-            var stringMessage = new Message<MessageType, StringMessage>(new StringMessage(Message));
-            var data = stringMessage.Serialize();
-            _hosts.SimpleServer.NetManager.FirstPeer.Send(data, DeliveryMethod.ReliableOrdered);
-
-            while (delivered == default)
-                Thread.Sleep(16);
-
-            Assert.Equal(Message, delivered);
+        // Message handling method
+        void Handler(ref NetMessage<StringMessage> netMessage)
+        {
+            delivered = netMessage.Message.Text;
         }
+
+        // Setup client.
+        _hosts.SimpleClient.MessageHandler.AddOrOverrideHandler<StringMessage>(Handler);
+
+        // Send Message.
+        var stringMessage = new Message<MessageType, StringMessage>(new StringMessage(Message));
+        var data = stringMessage.Serialize();
+        _hosts.SimpleServer.NetManager.FirstPeer.Send(data, DeliveryMethod.ReliableOrdered);
+
+        while (delivered == default)
+            Thread.Sleep(16);
+
+        Assert.Equal(Message, delivered);
     }
 }
