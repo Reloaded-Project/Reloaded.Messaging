@@ -7,7 +7,7 @@ namespace Reloaded.Messaging.Tests.Struct
     public struct Vector3 : IMessage<MessageType>
     {
         public MessageType GetMessageType() => MessageType.Vector3;
-        public ISerializer GetSerializer() => new MsgPackSerializer(true);
+        public ISerializer GetSerializer() => new MsgPackSerializer();
         public ICompressor GetCompressor() => null;
 
         public float X { get; set; }

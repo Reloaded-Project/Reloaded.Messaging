@@ -1,4 +1,5 @@
 ﻿using MessagePack;
+using MessagePack.Resolvers;
 using Reloaded.Messaging.Interfaces;
 
 namespace Reloaded.Messaging.Serializer.MessagePack
@@ -6,45 +7,40 @@ namespace Reloaded.Messaging.Serializer.MessagePack
     public class MsgPackSerializer : ISerializer
     {
         /// <summary>
-        /// Uses LZ4 compression for serialization.
+        /// Any custom resolver to pass to MessagePack.
+        /// Default is <see cref="ContractlessStandardResolver.Instance"/>
         /// </summary>
-        public bool UseLZ4 { get; private set; }
+        public IFormatterResolver Resolver { get; private set; } = ContractlessStandardResolver.Instance;
 
         /// <summary>
-        /// Any custom resolver to pass to MessagePack.
-        /// Default is <see cref="MessagePack.Resolvers.ContractlessStandardResolver.Instance"/>
+        /// Options for the MessagePack serializer.
         /// </summary>
-        public IFormatterResolver Resolver { get; private set; } = global::MessagePack.Resolvers.ContractlessStandardResolver.Instance;
+        public MessagePackSerializerOptions SerializerOptions { get; private set; } = MessagePackSerializerOptions.Standard;
 
         /// <summary>
         /// Creates a new instance of the MessagePack serializer.
         /// </summary>
-        /// <param name="useLz4">Uses MessagePack's serializer with LZ4 compression.</param>
         /// <param name="resolver">
         ///     Custom resolver to pass to MessagePack, default is "Contractless Resolver"
-        ///     (<see cref="MessagePack.Resolvers.ContractlessStandardResolver.Instance"/>).
+        ///     (<see cref="ContractlessStandardResolver.Instance"/>).
         /// </param>
-        public MsgPackSerializer(bool useLz4, IFormatterResolver resolver = null)
+        public MsgPackSerializer(IFormatterResolver resolver = null)
         {
-            UseLZ4 = useLz4;
             if (resolver != null)
                 Resolver = resolver;
         }
 
-
         /// <inheritdoc />
         public TStruct Deserialize<TStruct>(byte[] serialized)
         {
-            return UseLZ4 ? LZ4MessagePackSerializer.Deserialize<TStruct>(serialized, Resolver) : 
-                            MessagePackSerializer.Deserialize<TStruct>(serialized, Resolver);
+            return MessagePackSerializer.Deserialize<TStruct>(serialized, SerializerOptions);
         }
 
 
         /// <inheritdoc />
         public byte[] Serialize<TStruct>(ref TStruct item)
         {
-            return UseLZ4 ? LZ4MessagePackSerializer.Serialize(item, Resolver) :
-                            MessagePackSerializer.Serialize(item, Resolver);
+            return MessagePackSerializer.Serialize(item, SerializerOptions);
         }
     }
 }

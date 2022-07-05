@@ -6,6 +6,9 @@ using Reloaded.Messaging.Interfaces;
 
 namespace Reloaded.Messaging.Serializer.NewtonsoftJson
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class NewtonsoftJsonSerializer : ISerializer
     {
         /// <summary>

@@ -36,7 +36,7 @@ namespace Reloaded.Messaging.Tests.Tests.Serialization
         [Fact(Timeout = 1000)]
         public void MsgPackPassString()
         {
-            Overrides.SerializerOverride[typeof(StringMessage)] = new MsgPackSerializer(false);
+            Overrides.SerializerOverride[typeof(StringMessage)] = new MsgPackSerializer();
             Overrides.CompressorOverride[typeof(StringMessage)] = null;
             PassString();
         }

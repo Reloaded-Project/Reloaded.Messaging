@@ -8,7 +8,7 @@ namespace Reloaded.Messaging.Tests.Struct
     public struct StringMessage : IMessage<MessageType>
     {
         public MessageType GetMessageType() => MessageType.String;
-        public ISerializer GetSerializer()  => new MsgPackSerializer(true);
+        public ISerializer GetSerializer()  => new MsgPackSerializer();
         public ICompressor GetCompressor()  => null;
 
         public string Text { get; set; }

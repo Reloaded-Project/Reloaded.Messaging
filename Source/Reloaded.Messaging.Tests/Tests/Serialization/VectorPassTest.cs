@@ -34,7 +34,7 @@ namespace Reloaded.Messaging.Tests.Tests.Serialization
         [Fact(Timeout = 1000)]
         public void MsgPackPassVector3()
         {
-            Overrides.SerializerOverride[typeof(Vector3)] = new MsgPackSerializer(false);
+            Overrides.SerializerOverride[typeof(Vector3)] = new MsgPackSerializer();
             Overrides.CompressorOverride.Remove(typeof(Vector3));
             PassVector3();
         }
