@@ -25,7 +25,7 @@ namespace Reloaded.Messaging
         public event EventBasedNetListener.OnConnectionRequest ConnectionRequestEvent;
 
         /// <summary>
-        /// Dispatcher for individual <see cref="TMessageType"/>(s) to your events.
+        /// Dispatcher for individual <typeparamref name="TMessageType"/>(s) to your events.
         /// </summary>
         public MessageHandler<TMessageType> MessageHandler { get; private set; }
 
@@ -35,7 +35,11 @@ namespace Reloaded.Messaging
         /// <summary/>
         public NetManager NetManager { get; private set; }
 
-
+        /// <summary>
+        /// Provides a simple client or host based off of LiteNetLib.
+        /// </summary>
+        /// <param name="acceptClients">Set to true to accept incoming clients, else reject all requests.</param>
+        /// <param name="password">The password necessary to join.</param>
         public SimpleHost(bool acceptClients, string password = "")
         {
             Password = password;

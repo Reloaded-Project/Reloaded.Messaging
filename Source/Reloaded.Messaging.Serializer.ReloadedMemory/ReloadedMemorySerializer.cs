@@ -3,6 +3,9 @@ using Reloaded.Messaging.Interfaces;
 
 namespace Reloaded.Messaging.Serializer.ReloadedMemory
 {
+    /// <summary>
+    /// Serializes messages using raw byte conversion with Reloaded.Memory.
+    /// </summary>
     public class ReloadedMemorySerializer : ISerializer
     {
         /// <summary>

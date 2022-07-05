@@ -5,16 +5,29 @@ using Reloaded.Messaging.Interfaces;
 
 namespace Reloaded.Messaging.Messages
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="TMessageType">The key for the message.</typeparam>
+    /// <typeparam name="TStruct"></typeparam>
     public unsafe class Message<TMessageType, TStruct> : MessageBase<TMessageType> where TStruct : IMessage<TMessageType>, new() where TMessageType : unmanaged
     {
         // ReSharper disable StaticMemberInGenericType
         private static ISerializer DefaultSerializer { get; set; }
         private static ICompressor DefaultCompressor { get; set; }
         private static bool DefaultCompressorSet { get; set; }
+        
         // ReSharper restore StaticMemberInGenericType
 
+        /// <summary>
+        /// The actual message backed by this class.
+        /// </summary>
         public TStruct      ActualMessage { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="message"></param>
         public Message(TStruct message)
         {
             ActualMessage = message;
@@ -69,10 +82,9 @@ namespace Reloaded.Messaging.Messages
             // Get serializer
             var serializer = GetSerializer();
 
-            // Read messagepack message.
+            // Read message.
             var messageSegment = serializedBytes.AsSpan(sizeof(TMessageType)).ToArray();
             var message = serializer.Deserialize<TStruct>(messageSegment);
-
             return message;
 
             // Note: No need to read MessageType. MessageType was only necessary to link a message to correct handler.

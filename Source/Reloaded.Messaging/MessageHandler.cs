@@ -7,13 +7,14 @@ namespace Reloaded.Messaging
 {
     /// <summary>
     /// Provides a generic mechanism for dispatching messages received from a client or server.
-    /// Works by assigning functions to specified message "types", declared by <see cref="TMessageType"/>.
+    /// Works by assigning functions to specified message "types", declared by TMessageType.
     /// </summary>
     /// <typeparam name="TMessageType">Type of value to map to individual message handlers.</typeparam>
     public class MessageHandler<TMessageType> where TMessageType : unmanaged
     {
         private Dictionary<TMessageType, RawNetMessageHandler> _mapping;
 
+        /// <summary/>
         public MessageHandler()
         {
             _mapping = new Dictionary<TMessageType, RawNetMessageHandler>();
@@ -32,7 +33,7 @@ namespace Reloaded.Messaging
         }
 
         /// <summary>
-        /// Sets a method to execute handling a specific <see cref="TMessageType"/>
+        /// Sets a method to execute handling a specific <typeparamref name="TMessageType"/>
         /// </summary>
         public void AddOrOverrideHandler<TStruct>(Handler<TStruct> handler) where TStruct : IMessage<TMessageType>, new()
         {
@@ -41,7 +42,7 @@ namespace Reloaded.Messaging
         }
 
         /// <summary>
-        /// Sets a method to execute handling a specific <see cref="TMessageType"/>
+        /// Sets a method to execute handling a specific <typeparamref name="TMessageType"/>
         /// </summary>
         public void AddOrOverrideHandler<TStruct>(TMessageType messageType, Handler<TStruct> handler) where TStruct : IMessage<TMessageType>, new()
         {
@@ -56,13 +57,14 @@ namespace Reloaded.Messaging
         }
 
         /// <summary>
-        /// Removes the current method assigned to a handle a message of a specific <see cref="TMessageType"/>
+        /// Removes the current method assigned to a handle a message of a specific <typeparamref name="TMessageType"/>
         /// </summary>
         public void RemoveHandler(TMessageType messageType)
         {
             _mapping.Remove(messageType);
         }
 
+        /// <summary/>
         public delegate void Handler<TStruct>(ref NetMessage<TStruct> netMessage);
         private delegate void RawNetMessageHandler(ref RawNetMessage rawNetMessage);
     }

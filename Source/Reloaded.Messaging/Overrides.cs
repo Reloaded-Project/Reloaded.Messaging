@@ -10,7 +10,14 @@ namespace Reloaded.Messaging
     /// </summary>
     public static class Overrides
     {
+        /// <summary>
+        /// Allows you to override the serializer for a specific type.
+        /// </summary>
         public static Dictionary<Type, ISerializer> SerializerOverride { get; } = new Dictionary<Type, ISerializer>();
+
+        /// <summary>
+        /// Allows you to override the compressor for a specific type.
+        /// </summary>
         public static Dictionary<Type, ICompressor> CompressorOverride { get; } = new Dictionary<Type, ICompressor>();
     }
 }
