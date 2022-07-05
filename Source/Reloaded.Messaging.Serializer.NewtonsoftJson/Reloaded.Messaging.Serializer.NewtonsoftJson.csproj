@@ -13,7 +13,8 @@
     <RepositoryUrl>https://github.com/Reloaded-Project/Reloaded.Messaging</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <Version>1.0.1</Version>
+
+    <Version>2.0.0</Version>
     <PackageIcon>NuGet-Icon.png</PackageIcon>
   </PropertyGroup>
 
