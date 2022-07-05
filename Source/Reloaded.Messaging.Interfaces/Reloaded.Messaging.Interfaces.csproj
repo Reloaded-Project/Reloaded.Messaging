@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>preview</LangVersion>
     <Description>Contains all of the interfaces (and some extension functionality) used by the base Reloaded.Messaging library.
 This package exists to allow you to use various features of the library, such as serializers without the need to import the dependencies of the base package.</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>

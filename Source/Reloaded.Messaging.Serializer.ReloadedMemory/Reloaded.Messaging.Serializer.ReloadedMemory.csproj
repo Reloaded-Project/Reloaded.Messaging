@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.1;netstandard2.0</TargetFrameworks>
+    <LangVersion>preview</LangVersion>
     <Authors>Sewer56</Authors>
     <Product>Reloaded.Messaging.Serializer.ReloadedMemory</Product>
     <Description>Basic Reloaded.Memory based serialization implementation for Reloaded.Messaging that converts structs to their raw byte representation and back.</Description>
@@ -10,18 +11,8 @@
     <RepositoryUrl>https://github.com/Reloaded-Project/Reloaded.Messaging</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Version>1.1.0</Version>
-
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-
     <PackageIcon>NuGet-Icon.png</PackageIcon>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>obj\Reloaded.Messaging.Serializer.ReloadedMemory.xml</DocumentationFile>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>obj\Reloaded.Messaging.Serializer.ReloadedMemory.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

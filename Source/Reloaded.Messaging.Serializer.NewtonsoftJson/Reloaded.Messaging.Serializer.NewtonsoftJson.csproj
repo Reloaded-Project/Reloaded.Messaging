@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>preview</LangVersion>
     <PackageId>Reloaded.Messaging.Serializer.NewtonsoftJson</PackageId>
     <Authors>Sewer56</Authors>
     <Company>Sewer56</Company>

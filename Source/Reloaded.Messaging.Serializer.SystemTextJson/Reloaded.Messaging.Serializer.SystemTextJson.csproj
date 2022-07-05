@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net5.0;net7.0</TargetFrameworks>
+    <LangVersion>preview</LangVersion>
     <PackageId>Reloaded.Messaging.Serializer.SystemTextJson</PackageId>
     <Authors>Sewer56</Authors>
     <Company>Sewer56</Company>
