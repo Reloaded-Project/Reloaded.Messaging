@@ -10,12 +10,6 @@ namespace Reloaded.Messaging.Serializer.MessagePack;
 public class MsgPackSerializer : ISerializer
 {
     /// <summary>
-    /// Any custom resolver to pass to MessagePack.
-    /// Default is <see cref="ContractlessStandardResolver.Instance"/>
-    /// </summary>
-    public IFormatterResolver Resolver { get; private set; } = ContractlessStandardResolver.Instance;
-
-    /// <summary>
     /// Options for the MessagePack serializer.
     /// </summary>
     public MessagePackSerializerOptions SerializerOptions { get; private set; } = MessagePackSerializerOptions.Standard;
@@ -24,13 +18,11 @@ public class MsgPackSerializer : ISerializer
     /// Creates a new instance of the MessagePack serializer.
     /// </summary>
     /// <param name="resolver">
-    ///     Custom resolver to pass to MessagePack, default is "Contractless Resolver"
-    ///     (<see cref="ContractlessStandardResolver.Instance"/>).
+    ///     Custom resolver to pass to MessagePack, default instance uses "Contractless Resolver".
     /// </param>
     public MsgPackSerializer(IFormatterResolver resolver = null)
     {
-        if (resolver != null)
-            Resolver = resolver;
+        SerializerOptions = SerializerOptions.WithResolver(resolver ?? ContractlessStandardResolver.Instance);
     }
 
     /// <inheritdoc />
