@@ -31,10 +31,7 @@ public struct Vector3 : IMessage<MessageType>
     {
         if (ReferenceEquals(null, obj))
             return false;
-
-        if (ReferenceEquals(this, obj))
-            return true;
-
+        
         if (obj.GetType() != this.GetType())
             return false;
 

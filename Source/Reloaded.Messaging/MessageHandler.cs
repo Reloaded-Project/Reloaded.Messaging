@@ -27,9 +27,7 @@ public class MessageHandler<TMessageType> where TMessageType : unmanaged
     {
         var messageType = MessageBase<TMessageType>.GetMessageType(parameters.Message);
         if (_mapping.TryGetValue(messageType, out RawNetMessageHandler value))
-        {
             value(ref parameters);
-        }
     }
 
     /// <summary>
