@@ -30,7 +30,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="LiteNetLib" Version="0.9.3.2" />
+    <PackageReference Include="LiteNetLib" Version="1.0.0-rc.3" />
     <PackageReference Include="System.Memory" Version="4.5.3" Condition="! $(DefineConstants.Contains('USE_NATIVE_SPAN_API'))" />
     <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="4.5.2" Condition="! $(DefineConstants.Contains('USE_NATIVE_UNSAFE'))" />
   </ItemGroup>

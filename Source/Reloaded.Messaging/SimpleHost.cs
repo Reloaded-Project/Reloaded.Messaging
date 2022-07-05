@@ -71,7 +71,7 @@ namespace Reloaded.Messaging
         }
 
         /* On each message received. */
-        private void OnNetworkReceive(NetPeer peer, NetPacketReader reader, DeliveryMethod deliverymethod)
+        private void OnNetworkReceive(NetPeer peer, NetPacketReader reader, byte channel, DeliveryMethod deliverymethod)
         {
             byte[] rawBytes = reader.GetRemainingBytes();
             var rawNetMessage = new RawNetMessage(rawBytes, peer, reader, deliverymethod);
