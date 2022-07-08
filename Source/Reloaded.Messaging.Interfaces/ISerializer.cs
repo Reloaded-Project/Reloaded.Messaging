@@ -1,21 +1,24 @@
-﻿namespace Reloaded.Messaging.Interfaces;
+﻿using System;
+using System.Buffers;
+
+namespace Reloaded.Messaging.Interfaces;
 
 /// <summary>
 /// Defines the minimal interface necessary to bootstrap a 3rd party serializer.
 /// </summary>
-public interface ISerializer
+public interface ISerializer<TStruct>
 {
     /// <summary>
     /// Deserializes the provided byte array into a concrete type.
     /// </summary>
-    /// <typeparam name="TStruct">The type of the structure to deserialize.</typeparam>
     /// <param name="serialized">The data to deserialize.</param>
-    TStruct Deserialize<TStruct>(byte[] serialized);
+    TStruct Deserialize(Span<byte> serialized);
 
     /// <summary>
     /// Serializes the provided item into a byte array.
     /// </summary>
     /// <param name="item">The item to serialize to bytes.</param>
+    /// <param name="writer">The writer into which the serialized message should be written to.</param>
     /// <returns>Serialized item.</returns>
-    byte[] Serialize<TStruct>(ref TStruct item);
+    void Serialize(ref TStruct item, IBufferWriter<byte> writer);
 }

@@ -1,9 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.1;netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.1;netstandard2.0;netcoreapp3.1;net5.0</TargetFrameworks>
     <LangVersion>preview</LangVersion>
-    <PackageId>Reloaded.Messaging.Serializer.MessagePack</PackageId>
     <Authors>Sewer56</Authors>
     <Company>Sewer56</Company>
     <Description>Basic MessagePack serialization implementation for Reloaded.Messaging based off of MessagePack-CSharp.</Description>
@@ -15,6 +14,8 @@
     <Version>2.0.0</Version>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageIcon>NuGet-Icon.png</PackageIcon>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
 

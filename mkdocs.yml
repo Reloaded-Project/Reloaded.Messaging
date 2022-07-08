@@ -1,0 +1,50 @@
+site_name: Reloaded.Messaging Documentation
+site_url: https://github.com/Reloaded-Project/Reloaded.Messaging
+
+repo_name: Reloaded-Project/Reloaded.Messaging
+repo_url: https://github.com/Reloaded-Project/Reloaded.Messaging
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Sewer56
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/TheSewer56
+
+markdown_extensions:
+  - admonition
+  - tables
+  - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.tasklist
+  - def_list
+  - meta
+  - md_in_html
+  - attr_list
+  - footnotes
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+plugins:
+  - search
+
+theme:
+  name: material
+  palette:
+    primary: red
+    accent: red
+    scheme: slate
+  features:
+    - navigation.instant
+    
+nav:
+  - Home: index.md
+  - Basic Usage: 
+    - Defining Structures: defining-structures.md
+    - Running A Host: running-host.md
+  - Serializers & Compressors: serializers-compressors.md
+  - Benchmarks: benchmarks.md
+  - Internals: 
+    - Message Structure: message-structure.md
