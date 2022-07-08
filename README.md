@@ -21,7 +21,7 @@ It was originally created for Reloaded II, however has been extended in the hope
 This library is heavily optimized for achieving high throughput for messages `< 128KB`.  
 
 ## Characteristics
-- High performance. (Memory pooling, low heap allocation, stack allocation).  
+- High performance. (Memory pooling, allocation free).  
 - Low networking overhead.  
 - Custom serializer/compressor per class type.  
 - Simple message packing/protocol.  
@@ -30,4 +30,4 @@ This library is heavily optimized for achieving high throughput for messages `< 
 
 ## Documentation
 
-More information can be found in the dedicated documentation site.  
+More information can be found in the [dedicated documentation site](https://reloaded-project.github.io/Reloaded.Messaging).  
