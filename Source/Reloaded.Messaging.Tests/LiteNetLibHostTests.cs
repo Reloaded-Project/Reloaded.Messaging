@@ -37,7 +37,7 @@ public class TestingHosts : IDisposable
         Client?.Dispose();
     }
 
-    [Fact(Timeout = 5000)]
+    [Fact(Timeout = 20000)]
     public async Task SendAndReceiveMessage()
     {
         // Arrange/Setup Host
