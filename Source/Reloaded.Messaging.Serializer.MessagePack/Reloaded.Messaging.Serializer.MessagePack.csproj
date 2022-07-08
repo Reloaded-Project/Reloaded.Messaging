@@ -16,8 +16,10 @@
     <PackageIcon>NuGet-Icon.png</PackageIcon>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Nullable>enable</Nullable>
-  </PropertyGroup>
 
+    <IsTrimmable>false</IsTrimmable>
+    <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
+  </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="MessagePack" Version="2.4.35" />

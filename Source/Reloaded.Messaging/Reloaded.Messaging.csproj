@@ -20,6 +20,9 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <PackageIcon>NuGet-Icon.png</PackageIcon>
     <Nullable>enable</Nullable>
+
+    <IsTrimmable>false</IsTrimmable>
+    <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
   </PropertyGroup>
 
   <ItemGroup>

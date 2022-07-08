@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Buffers;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Runtime.CompilerServices;
 using System.Text.Json;
@@ -8,7 +9,11 @@ using Reloaded.Messaging.Interfaces;
 namespace Reloaded.Messaging.Extras.Runtime;
 
 /// <inheritdoc />
-public struct SystemTextJsonSerializer<TStruct> : ISerializer<TStruct>
+public struct SystemTextJsonSerializer<
+#if NET5_0_OR_GREATER
+    [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)]
+#endif
+TStruct> : ISerializer<TStruct>
 {
     /// <summary>
     /// Serialization options.
@@ -35,15 +40,19 @@ public struct SystemTextJsonSerializer<TStruct> : ISerializer<TStruct>
     /// <inheritdoc />
 #if NET5_0_OR_GREATER
     [SkipLocalsInit]
+    [UnconditionalSuppressMessage("ReflectionAnalysis", "IL2026", Justification = "Types passed to this serializer are preserved.")]
 #endif
     public TStruct Deserialize(Span<byte> serialized)
     {
-        return JsonSerializer.Deserialize<TStruct>(serialized, Options)!;
+        return JsonSerializer.Deserialize<
+
+            TStruct > (serialized, Options)!;
     }
 
     /// <inheritdoc />
 #if NET5_0_OR_GREATER
     [SkipLocalsInit]
+    [UnconditionalSuppressMessage("ReflectionAnalysis", "IL2026", Justification = "Types passed to this serializer are preserved.")]
 #endif
     public void Serialize(ref TStruct item, IBufferWriter<byte> writer)
     {

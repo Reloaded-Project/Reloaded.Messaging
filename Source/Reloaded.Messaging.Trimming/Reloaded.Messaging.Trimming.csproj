@@ -1,17 +1,16 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-  </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="BenchmarkDotNet" Version="0.13.1" />
-    <PackageReference Include="Bogus" Version="34.0.2" />
-  </ItemGroup>
+    <!-- Prevent warnings from unused code in dependencies -->
+    <PublishTrimmed>true</PublishTrimmed>
+    <TrimmerDefaultAction>link</TrimmerDefaultAction>
+    <TrimmerSingleWarn>false</TrimmerSingleWarn>
+  </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Reloaded.Messaging.Compressor.ZStandard\Reloaded.Messaging.Compressor.ZStandard.csproj" />
@@ -22,6 +21,12 @@
     <ProjectReference Include="..\Reloaded.Messaging.Serializer.ReloadedMemory\Reloaded.Messaging.Serializer.ReloadedMemory.csproj" />
     <ProjectReference Include="..\Reloaded.Messaging\Reloaded.Messaging.csproj" />
 
+    <!-- Analyze the whole library, even if attributed with "IsTrimmable" -->
+    <TrimmerRootAssembly Include="Reloaded.Messaging.Interfaces" />
+    <TrimmerRootAssembly Include="Reloaded.Messaging.Extras.Runtime" />
+    <TrimmerRootAssembly Include="Reloaded.Messaging.Host.LiteNetLib" />
+    <TrimmerRootAssembly Include="Reloaded.Messaging.Compressor.ZStandard" />
+    <TrimmerRootAssembly Include="Reloaded.Messaging.Serializer.ReloadedMemory" />
   </ItemGroup>
 
 </Project>

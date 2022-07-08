@@ -14,6 +14,9 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageIcon>NuGet-Icon.png</PackageIcon>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+
+    <IsTrimmable>true</IsTrimmable>
+    <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
   </PropertyGroup>
 
   <ItemGroup>
