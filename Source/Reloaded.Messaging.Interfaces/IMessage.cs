@@ -1,15 +1,16 @@
 ﻿using Reloaded.Messaging.Interfaces.Message;
 
-namespace Reloaded.Messaging.Interfaces
+namespace Reloaded.Messaging.Interfaces;
+
+/// <summary>
+/// Common interface shared by individual messages.
+/// </summary>
+public interface IMessage<TStruct, out TSerializer, out TCompressor> : ISerializable<TStruct, TSerializer, TCompressor> 
+    where TSerializer : ISerializer<TStruct> 
+    where TCompressor : ICompressor
 {
     /// <summary>
-    /// Common interface shared by individual messages.
+    /// Returns the unique message type/id for this message.
     /// </summary>
-    public interface IMessage<TMessageType> : ISerializable where TMessageType : unmanaged
-    {
-        /// <summary>
-        /// Returns the unique message type/id for this message.
-        /// </summary>
-        TMessageType GetMessageType();
-    }
+    sbyte GetMessageType();
 }

@@ -1,9 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.0;NET472</TargetFrameworks>
-
+    <TargetFrameworks>netcoreapp3.1;net6.0</TargetFrameworks>
+    <LangVersion>preview</LangVersion>
     <IsPackable>false</IsPackable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,17 +19,20 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.0.1" />
-    <PackageReference Include="xunit" Version="2.4.0" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.2.0" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Reloaded.Messaging.Compressor.ZStandard\Reloaded.Messaging.Compressor.ZStandard.csproj" />
+    <ProjectReference Include="..\Reloaded.Messaging.Extras.Runtime\Reloaded.Messaging.Extras.Runtime.csproj" />
+    <ProjectReference Include="..\Reloaded.Messaging.Host.LiteNetLib\Reloaded.Messaging.Host.LiteNetLib.csproj" />
     <ProjectReference Include="..\Reloaded.Messaging.Serializer.MessagePack\Reloaded.Messaging.Serializer.MessagePack.csproj" />
-    <ProjectReference Include="..\Reloaded.Messaging.Serializer.NewtonsoftJson\Reloaded.Messaging.Serializer.NewtonsoftJson.csproj" />
     <ProjectReference Include="..\Reloaded.Messaging.Serializer.ReloadedMemory\Reloaded.Messaging.Serializer.ReloadedMemory.csproj" />
-    <ProjectReference Include="..\Reloaded.Messaging.Serializer.SystemTextJson\Reloaded.Messaging.Serializer.SystemTextJson.csproj" />
     <ProjectReference Include="..\Reloaded.Messaging\Reloaded.Messaging.csproj" />
   </ItemGroup>
 

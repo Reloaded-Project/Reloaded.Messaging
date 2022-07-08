@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netcoreapp3.1;net6.0;net5.0</TargetFrameworks>
+    <LangVersion>preview</LangVersion>
+    <Authors>Sewer56</Authors>
+    <Company>Sewer56</Company>
+    <Description>Provides support for compressors and serializers available in the .NET runtime.</Description>
+    <Copyright>Sewer56</Copyright>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/Reloaded-Project/Reloaded.Messaging</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Reloaded-Project/Reloaded.Messaging</RepositoryUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <Version>2.0.0</Version>
+    <PackageIcon>NuGet-Icon.png</PackageIcon>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+
+    <IsTrimmable>true</IsTrimmable>
+    <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Reloaded.Messaging.Interfaces\Reloaded.Messaging.Interfaces.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\NuGet-Icon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\LICENSE.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
