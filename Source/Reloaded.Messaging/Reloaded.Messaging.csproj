@@ -11,7 +11,7 @@
     <RepositoryUrl>https://github.com/Reloaded-Project/Reloaded.Messaging</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Copyright>Sewer56</Copyright>
-    <Version>2.0.0</Version>
+    <Version>2.0.1</Version>
 
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <DefineConstants Condition="'$(TargetFramework)' == 'netstandard2.1' Or '$(TargetFramework)' == 'netcoreapp3.1' Or '$(TargetFramework)' == 'net5.0'">$(DefineConstants);USE_NATIVE_SPAN_API</DefineConstants>
