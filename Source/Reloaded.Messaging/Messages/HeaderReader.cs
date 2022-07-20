@@ -44,7 +44,7 @@ public struct HeaderReader
 
         if ((messageType & CompressionFlag) == CompressionFlag)
         {
-            sizeAfterDecompression = Unsafe.AsRef<int>(Unsafe.Add(ref MemoryMarshal.GetReference(data), 1));
+            sizeAfterDecompression = Unsafe.ReadUnaligned<int>(ref Unsafe.Add(ref MemoryMarshal.GetReference(data), 1));
             messageType = (sbyte)(messageType ^ CompressionFlag);
             if (!BitConverter.IsLittleEndian) // Evaluated at JIT time.
                 sizeAfterDecompression = BinaryPrimitives.ReverseEndianness(sizeAfterDecompression);
