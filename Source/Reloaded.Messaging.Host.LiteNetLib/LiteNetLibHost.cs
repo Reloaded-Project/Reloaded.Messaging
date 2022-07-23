@@ -48,7 +48,7 @@ public class LiteNetLibHost<TDispatcher> : IDisposable, IHost<TDispatcher, LiteN
     /// <summary>
     /// Provides access to first connected peer, useful if client.
     /// </summary>
-    public NetPeer FirstPeer => Manager.FirstPeer;
+    public NetPeer? FirstPeer => Manager.FirstPeer;
 
     private TDispatcher _dispatcher;
 
