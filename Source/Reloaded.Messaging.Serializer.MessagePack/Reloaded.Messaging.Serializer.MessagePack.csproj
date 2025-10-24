@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.1;netstandard2.0;netcoreapp3.1;net5.0</TargetFrameworks>
@@ -11,7 +11,7 @@
     <PackageProjectUrl>https://github.com/Reloaded-Project/Reloaded.Messaging</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Reloaded-Project/Reloaded.Messaging</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2.0.0</Version>
+    <Version>2.0.1</Version>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageIcon>NuGet-Icon.png</PackageIcon>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
