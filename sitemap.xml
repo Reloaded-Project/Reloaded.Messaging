@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://github.com/Reloaded-Project/Reloaded.Messaging/</loc>
+         <lastmod>2025-10-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://github.com/Reloaded-Project/Reloaded.Messaging/benchmarks/</loc>
+         <lastmod>2025-10-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://github.com/Reloaded-Project/Reloaded.Messaging/defining-structures/</loc>
+         <lastmod>2025-10-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://github.com/Reloaded-Project/Reloaded.Messaging/message-structure/</loc>
+         <lastmod>2025-10-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://github.com/Reloaded-Project/Reloaded.Messaging/running-host/</loc>
+         <lastmod>2025-10-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://github.com/Reloaded-Project/Reloaded.Messaging/serializers-compressors/</loc>
+         <lastmod>2025-10-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+</urlset>
